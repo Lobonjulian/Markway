@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* BOTÓN */
+.btn {
+  padding: 0.5rem 1rem;
+  font-weight: 300;
+  color: var(--text-100);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn--primary {
+  background-color: var(--accent-100);
+}
+
+.btn--secondary {
+  background-color: var(--accent-200);
+}
+
+/* INPUT */
+.label {
+  font-size: 0.9rem;
+}
+
+.input {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--text-200);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  &:focus {
+    border-color: var(--accent-100);
+  }
+}
+
+/* TITLE */
+.title {
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+/* CARD */
+.card {
+  padding: 1rem;
+  background: var(--bg-200);
+  border: 1px solid var(--bg-200);
+  box-shadow: 0 1px 3px var(--text-200);
+  transition: transform 0.15s ease-in-out;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

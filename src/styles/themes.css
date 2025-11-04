@@ -1,0 +1,27 @@
+:root {
+  --primary-100: #2A9D8F;
+  --primary-200: #e47d70;
+  --accent-100: #F4A261;
+  --accent-200: #d4e728;
+  --text-100: #0f3057;
+  --text-200: #aec5f0;
+  --bg-100: #e0e0e0;
+  --bg-200: #002a42;
+
+  --cuerpo: 'Stardom', helvetica sans-serif;
+  --titulo: 'Nimbus', serif;
+}
+
+@font-face {
+  font-family: 'Stardom';
+  src: url('/fonts/Stardom-Regular.woff2') format('woff2'),
+    url('/fonts/Stardom-Regular.woff') format('woff'),
+    url('/fonts/Stardom-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nimbus';
+  src: url('/fonts/NIMBUS.ttf') format('truetype');
+  font-display: swap;
+}

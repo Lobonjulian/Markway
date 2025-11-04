@@ -1,0 +1,10 @@
+@import './themes.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--cuerpo);
+  color: var(--text-200);
+  background-color: var(--bg-100);
+}
