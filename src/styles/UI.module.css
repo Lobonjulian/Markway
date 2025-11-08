@@ -1,42 +1,153 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
 /* BOTÓN */
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--bg-100);
   font-weight: 300;
-  color: var(--text-100);
+  text-decoration: none;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-base);
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 140ms ease,
+    box-shadow 0.2s ease,
+    opacity 120ms ease-in-out;
+  user-select: none;
 }
 
-.btn--primary {
-  background-color: var(--accent-100);
+.primary {
+  background: linear-gradient(180deg, var(--accent-100), var(--primary-200));
+  box-shadow: 0 6px 18px rgba(11, 113, 225, 0.12);
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
 }
 
-.btn--secondary {
+.secondary {
   background-color: var(--accent-200);
+  border: 1px solid var(--color-border);
+  &:hover {
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--primary-100);
+  box-shadow: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Tamaños opcionales */
+.size_sm {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+.size_md {
+  font-size: 1rem;
+}
+
+.size_lg {
+  padding: 0.9rem 1.25rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Disabled */
+.btn[disabled],
+[aria-disabled='true'] {
+  opacity: 0.6;
+  pointer-events: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* Iconos dentro de botones */
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(11, 113, 225, 0.18);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 /* INPUT */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .label {
   font-size: 0.9rem;
 }
 
 .input {
-  padding: 0.5rem 0.8rem;
-  border: 1px solid var(--text-200);
-  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
   outline: none;
-  transition: border-color 0.2s;
+  background: transparent;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 120ms ease;
+
   &:focus {
-    border-color: var(--accent-100);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-100);
   }
+}
+
+.inputError {
+  border-color: var(--accent-200, #ef4444);
+}
+
+.inputHint {
+  color: var(--text-200);
+  font-size: 0.9rem;
+}
+
+/* CARD */
+.card {
+  background-color: var(--text-200);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 368px;
+  object-fit: cover;
+  border-radius: var(--radius-base);
+}
+
+.cardFooter {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* TITLE */
@@ -45,14 +156,70 @@
   text-wrap: balance;
 }
 
-/* CARD */
-.card {
-  padding: 1rem;
-  background: var(--bg-200);
-  border: 1px solid var(--bg-200);
-  box-shadow: 0 1px 3px var(--text-200);
-  transition: transform 0.15s ease-in-out;
+.description {
+  margin: 0.35rem 0 0;
+  opacity: 0.7;
+  font-size: clamp(0.595rem, 0.5403rem + 4.3727vw, 3rem);
+}
+
+/* LOGO */
+.logo__img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.logo__text {
+  margin-left: 0.6rem;
+  font-weight: 700;
+  vertical-align: middle;
+  font-size: 1.05rem;
+}
+
+/* NAVLINK */
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text-100);
+  text-decoration: none;
   &:hover {
-    transform: translateY(-2px);
+    background: rgba(11, 113, 225, 0.06);
+  }
+}
+.navLinkActive {
+  background: linear-gradient(90deg, rgba(11, 113, 225, 0.12), rgba(11, 113, 225, 0.06));
+  color: var(--primary-100);
+  font-weight: 700;
+}
+
+.row {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.container-sm {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 640px) {
+  .logo__text {
+    display: none;
+  }
+  .cardImage {
+    max-height: 160px;
+  }
+  .btn {
+    font-size: 0.95rem;
   }
 }
