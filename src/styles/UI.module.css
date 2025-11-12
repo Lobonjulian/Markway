@@ -179,6 +179,7 @@
 
 /* NAVLINK */
 .navLink {
+  list-style: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;

@@ -1,9 +1,8 @@
 import { FiMenu, FiX } from 'react-icons/fi';
-import { useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 import clsx from 'clsx';
 
-import styles from '@styles/Components.module.css';
-import { forwardRef } from 'react';
+import styles from '@styles/Layouts.module.css';
 
 const MobileToggle = forwardRef(
   ({ mobileOpen = false, onClick = () => {}, className = '' }, ref) => {

@@ -1,7 +1,7 @@
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
-import styles from '@styles/Components.module.css';
+import styles from '@styles/UI.module.css';
 
 const NavList = ({ to, end = false, onClick, label }) => {
   return (

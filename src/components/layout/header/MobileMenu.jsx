@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Nav from './Nav';
-import PostButton from './PostButton';
+import HeaderActions from './HeaderActions';
 
-import styles from '@styles/Components.module.css';
+import styles from '@styles/Layouts.module.css';
 
 const MobileMenu = ({ id = 'mobile-menu', isOpen = false, onClose = () => {}, links = [] }) => {
   const containerRef = useRef(null);
@@ -117,7 +117,7 @@ const MobileMenu = ({ id = 'mobile-menu', isOpen = false, onClose = () => {}, li
       >
         <Nav links={links} />
 
-        <PostButton />
+        <HeaderActions />
       </aside>
     </div>
   );

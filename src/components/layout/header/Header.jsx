@@ -1,12 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import HeaderActions from './HeaderActions';
 import Logo from '@components/ui/Logo';
 import MobileMenu from './MobileMenu';
 import MobileToggle from './MobileToggle';
 import Nav from './Nav';
-import PostButton from './PostButton';
+import useAuthStore from '@store/useAuthStore.js';
 
-import styles from '@styles/Components.module.css';
+import styles from '@styles/Layouts.module.css';
 
 const headerItems = [
   { to: '/product', label: 'Producto' },
@@ -23,20 +24,27 @@ const Header = () => {
   const toggleRef = useRef(null);
   const firstMobileLinkRef = useRef(null);
 
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const logout = useAuthStore((s) => s.logout);
+
   useEffect(() => {
     if (mobileOpen) setMobileOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
-  const handleToggle = () => setMobileOpen((v) => !v);
+  const handleToggle = useCallback(() => setMobileOpen((v) => !v), []);
 
-  const handleMobileClose = () => setMobileOpen(false);
+  const handleMobileClose = useCallback(() => setMobileOpen(false), []);
+
+  const handleLogout = useCallback(() => {
+    logout();
+  }, [logout]);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.header__container}>
+    <header className={styles.header} role="banner">
+      <div className={styles.container}>
         <div className={styles.header__logo}>
-          <Logo to="/" title="Markway" compact={false} />
+          <Logo to="/" title="Markway" />
         </div>
 
         <div className={styles.header__nav}>
@@ -44,7 +52,7 @@ const Header = () => {
         </div>
 
         <div className={styles.header__actions}>
-          <PostButton />
+          <HeaderActions isAuthenticated={isAuthenticated} onLogout={handleLogout} />
         </div>
 
         <div className={styles.header__toggle}>

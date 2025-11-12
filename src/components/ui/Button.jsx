@@ -32,7 +32,7 @@ const Button = forwardRef(
       : {
           ref,
           className: classNames,
-          'arial-disabled': disabled ? 'true' : undefined,
+          'aria-disabled': disabled ? 'true' : undefined,
           tabIndex: disabled ? -1 : rest.tabIndex,
           ...rest,
         };

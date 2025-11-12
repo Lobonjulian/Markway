@@ -14,11 +14,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--cuerpo);
   background-color: var(--bg-100);
   color: var(--text-100);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -27,27 +29,13 @@ main {
   padding: 2rem;
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: var(--gap);
-}
-
-.grid {
-  display: grid;
-  gap: var(--gap);
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 img {
